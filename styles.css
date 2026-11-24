@@ -70,13 +70,16 @@ h2 { margin: 0; font-family: 'Press Start 2P', 'Courier New', monospace; font-si
 .day-flower { color: var(--rose); font-size: 25px; }
 .task-list { display: grid; gap: 8px; padding: 16px 0; }
 .task-list:empty { display: none; }
-.task-item { display: grid; grid-template-columns: 34px 55px minmax(0, 1fr); align-items: center; min-height: 50px; padding: 8px 12px; background: #fffaf0; border: 1px solid #e3d6bf; box-shadow: 2px 2px 0 #e6dac3; }
+.empty-state { margin: 0; padding: 19px 14px; color: var(--muted); background: #fbf7ed; border: 1px dashed #ddcfb4; font-size: 13px; line-height: 1.65; text-align: center; }
+.task-item { display: grid; grid-template-columns: 34px 55px minmax(0, 1fr) 30px; align-items: center; min-height: 50px; padding: 8px 12px; background: #fffaf0; border: 1px solid #e3d6bf; box-shadow: 2px 2px 0 #e6dac3; }
 .task-item.is-completed { background: #eeeede; border-color: #ccd0b4; box-shadow: 2px 2px 0 #d8dbc6; }
 .task-item.is-completed .task-title { color: #827d6a; text-decoration: line-through; text-decoration-color: #89916b; }
 .task-item.is-completed .task-time { color: #858a6e; }
 .completion-toggle { display: grid; width: 24px; height: 24px; place-items: center; color: var(--olive-dark); background: #fffdf7; border: 1px solid #b9b99a; cursor: pointer; font-size: 14px; }
 .completion-toggle[aria-pressed="true"] { color: #fffaf0; background: var(--olive); border-color: var(--olive-dark); }
 .completion-toggle:hover { border-color: var(--olive-dark); }
+.delete-task-button { display: grid; width: 26px; height: 26px; place-items: center; color: #925c51; background: #fffaf0; border: 1px solid #d8b7a9; cursor: pointer; font-family: 'DM Mono', monospace; font-size: 13px; }
+.delete-task-button:hover { color: #fffaf0; background: #a66559; border-color: #8f5148; }
 .storage-status { margin: 14px 0 0; padding: 10px 12px; color: #765839; background: #f4e7c9; border-left: 3px solid #bd9554; font-size: 12px; line-height: 1.5; }
 .task-time { color: var(--olive); font-family: 'DM Mono', monospace; font-size: 11px; }
 .task-time.is-unscheduled { color: #aa9981; font-style: italic; }
@@ -107,14 +110,16 @@ h2 { margin: 0; font-family: 'Press Start 2P', 'Courier New', monospace; font-si
   .intro { padding: 38px 0 23px; }.subtitle { font-size: 12px; }
   .planner-card { padding: 23px 15px 0; box-shadow: 5px 5px 0 var(--shadow); }
   .planner-heading { align-items: flex-start; flex-direction: column; gap: 14px; }
-  .week-controls { align-self: flex-end; margin-top: -48px; }
+  .week-controls { align-self: flex-end; margin-top: 0; }
   .week-strip { gap: 5px; margin-top: 22px; }
   .day-button { min-height: 75px; gap: 6px; }.day-button .weekday { font-size: 8px; }.day-button .day-number { width: 29px; height: 29px; font-size: 13px; }
   .day-button .today-tag { font-size: 6px; }
   .day-content { padding: 18px 12px 14px; }
   .task-form { padding: 13px; }
-  .form-bottom-row { flex-wrap: wrap; }
-  .add-task-button { margin-left: auto; }
+  .form-bottom-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px; }
+  .time-label { grid-column: 1 / -1; }
+  .task-form input[type="time"] { min-width: 0; width: 100%; }
+  .add-task-button { grid-column: 1 / -1; justify-self: end; margin-left: 0; }
 }
 @media (max-width: 380px) {
   .top-note { max-width: 120px; line-height: 1.4; text-align: right; }
@@ -122,4 +127,6 @@ h2 { margin: 0; font-family: 'Press Start 2P', 'Courier New', monospace; font-si
   .week-strip { gap: 3px; }
   .day-button .weekday { font-size: 7px; letter-spacing: 0; }
   .day-button { min-height: 70px; }
+  .day-title { font-size: 10px; }
+  .task-item { grid-template-columns: 30px 48px minmax(0, 1fr) 28px; padding-inline: 8px; }
 }

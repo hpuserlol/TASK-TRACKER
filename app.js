@@ -1,4 +1,4 @@
-﻿(() => {
+(() => {
   const storageKey = 'cozy-planner-v1';
   const weekLabel = document.querySelector('#week-label');
   const weekStrip = document.querySelector('#week-strip');
@@ -124,9 +124,19 @@
 
   function renderTasks() {
     taskList.replaceChildren();
-    for (const task of getSelectedDayTasks()) {
+    const selectedDayTasks = getSelectedDayTasks();
+    if (selectedDayTasks.length === 0) {
+      const emptyState = document.createElement('p');
+      emptyState.className = 'empty-state';
+      emptyState.textContent = 'Nothing planned for this day yet. Add a little task below when you are ready.';
+      taskList.append(emptyState);
+      return;
+    }
+
+    for (const task of selectedDayTasks) {
       const item = document.createElement('div');
       item.className = task.completed ? 'task-item is-completed' : 'task-item';
+      item.setAttribute('role', 'listitem');
       const completionButton = document.createElement('button');
       completionButton.type = 'button';
       completionButton.className = 'completion-toggle';
@@ -151,7 +161,21 @@
       const title = document.createElement('span');
       title.className = 'task-title';
       title.textContent = task.title;
-      item.append(completionButton, time, title);
+
+      const deleteButton = document.createElement('button');
+      deleteButton.type = 'button';
+      deleteButton.className = 'delete-task-button';
+      deleteButton.textContent = 'x';
+      deleteButton.setAttribute('aria-label', `Delete task: ${task.title}`);
+      deleteButton.title = 'Delete task';
+      deleteButton.addEventListener('click', () => {
+        tasks = tasks.filter((savedTask) => savedTask.id !== task.id);
+        saveTasks();
+        renderTasks();
+        taskTitleInput.focus();
+      });
+
+      item.append(completionButton, time, title, deleteButton);
       taskList.append(item);
     }
   }
