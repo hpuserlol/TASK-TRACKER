@@ -13,12 +13,12 @@
   const nextWeekButton = document.querySelector('#next-week');
   const todayButton = document.querySelector('#today-button');
 
-  const weekdayNames = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'];
-  const fullDateFormatter = new Intl.DateTimeFormat('vi-VN', {
+  const weekdayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  const fullDateFormatter = new Intl.DateTimeFormat('en-US', {
     weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
   });
-  const monthFormatter = new Intl.DateTimeFormat('vi-VN', { month: 'long', year: 'numeric' });
-  const rangeFormatter = new Intl.DateTimeFormat('vi-VN', { day: 'numeric', month: 'short' });
+  const monthFormatter = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' });
+  const rangeFormatter = new Intl.DateTimeFormat('en-US', { day: 'numeric', month: 'short' });
 
   let weekStart = getMonday(new Date());
   let selectedDate = startOfDay(new Date());
@@ -183,7 +183,7 @@
   function render() {
     const weekEnd = addDays(weekStart, 6);
     weekLabel.textContent = formatRange(weekStart, weekEnd);
-    selectedDateKicker.textContent = fullDateFormatter.format(selectedDate).toLocaleUpperCase('vi-VN');
+    selectedDateKicker.textContent = fullDateFormatter.format(selectedDate).toLocaleUpperCase('en-US');
     weekStrip.replaceChildren();
 
     for (let dayIndex = 0; dayIndex < 7; dayIndex += 1) {
