@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="vi">
   <head>
     <meta charset="utf-8">
@@ -12,7 +12,7 @@
     <div class="page-shell">
       <header class="topbar">
         <a class="brand" href="./" aria-label="Cozy Week, trang chủ">
-          <span class="brand-mark" aria-hidden="true">✿</span>
+          <span class="brand-mark" aria-hidden="true">*</span>
           <span>Cozy Week</span>
         </a>
         <span class="top-note"><span class="status-dot" aria-hidden="true"></span> a little space for your week</span>
@@ -20,7 +20,7 @@
 
       <main>
         <section class="intro" aria-labelledby="page-title">
-          <div class="eyebrow"><span aria-hidden="true">✦</span> YOUR WEEKLY PLANNER <span aria-hidden="true">✦</span></div>
+          <div class="eyebrow"><span aria-hidden="true">*</span> YOUR WEEKLY PLANNER <span aria-hidden="true">*</span></div>
           <h1 id="page-title">Make room for <em>little things.</em></h1>
           <p class="subtitle">A soft place to gather your days and see what they hold.</p>
         </section>
@@ -32,32 +32,42 @@
               <h2 id="week-label" aria-live="polite"></h2>
             </div>
             <div class="week-controls" aria-label="Điều hướng tuần">
-              <button class="icon-button" id="previous-week" type="button" aria-label="Tuần trước" title="Tuần trước">←</button>
+              <button class="icon-button" id="previous-week" type="button" aria-label="Tuần trước" title="Tuần trước"><</button>
               <button class="today-button" id="today-button" type="button">Hôm nay</button>
-              <button class="icon-button" id="next-week" type="button" aria-label="Tuần sau" title="Tuần sau">→</button>
+              <button class="icon-button" id="next-week" type="button" aria-label="Tuần sau" title="Tuần sau">></button>
             </div>
           </div>
 
           <div class="week-strip" id="week-strip" role="group" aria-label="Chọn ngày trong tuần"></div>
 
-          <div class="day-panel" aria-live="polite">
-            <div class="panel-sparkle" aria-hidden="true">✧</div>
-            <div class="empty-illustration" aria-hidden="true">
-              <div class="sun"></div><div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
-              <div class="hill hill-back"></div><div class="hill hill-front"></div>
-              <span class="flower flower-one">✿</span><span class="flower flower-two">✿</span>
+          <section class="day-content" aria-labelledby="selected-date-kicker">
+            <div class="day-content-heading">
+              <div>
+                <p class="section-kicker" id="selected-date-kicker"></p>
+                <h3 class="day-title">A fresh little page</h3>
+              </div>
+              <span class="day-flower" aria-hidden="true">*</span>
             </div>
-            <p class="section-kicker" id="selected-date-kicker"></p>
-            <h3>A fresh little page</h3>
-            <p class="empty-copy">This day is yours to shape.<br>Take a breath and enjoy the space.</p>
-            <div class="dotted-rule" aria-hidden="true"></div>
-            <p class="gentle-note"><span aria-hidden="true">♡</span> one thing at a time</p>
-          </div>
-          <footer class="planner-footer"><span>✦</span> MADE FOR SLOWER DAYS <span>✦</span></footer>
+            <p class="storage-status" id="storage-status" role="status" aria-live="polite" hidden></p>
+            <div class="task-list" id="task-list" aria-live="polite"></div>
+            <form class="task-form" id="task-form">
+              <p class="form-heading"><span aria-hidden="true">*</span> Add a little something</p>
+              <label class="visually-hidden" for="task-title">Task title</label>
+              <input id="task-title" name="title" type="text" maxlength="160" placeholder="What would you like to do?" required autocomplete="off">
+              <div class="form-bottom-row">
+                <label class="time-label" for="task-time"><span aria-hidden="true">*</span> Time <span class="optional-label">(optional)</span></label>
+                <input id="task-time" name="time" type="time" aria-label="Task time, optional">
+                <button class="add-task-button" type="submit"><span aria-hidden="true">+</span> Add task</button>
+              </div>
+              <p class="form-error" id="form-error" role="alert" hidden></p>
+            </form>
+            <p class="gentle-note"><span aria-hidden="true">*</span> one thing at a time</p>
+          </section>
+          <footer class="planner-footer"><span>*</span> MADE FOR SLOWER DAYS <span>*</span></footer>
         </section>
       </main>
 
-      <footer class="page-footer">A little plan, a little magic <span aria-hidden="true">☾</span></footer>
+      <footer class="page-footer">A little plan, a little magic <span aria-hidden="true">~</span></footer>
     </div>
   </body>
 </html>
