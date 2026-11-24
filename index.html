@@ -1,0 +1,63 @@
+﻿<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4ead5">
+    <title>Cozy Pixel Weekly Planner</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="Cozy Week, trang chủ">
+          <span class="brand-mark" aria-hidden="true">✿</span>
+          <span>Cozy Week</span>
+        </a>
+        <span class="top-note"><span class="status-dot" aria-hidden="true"></span> a little space for your week</span>
+      </header>
+
+      <main>
+        <section class="intro" aria-labelledby="page-title">
+          <div class="eyebrow"><span aria-hidden="true">✦</span> YOUR WEEKLY PLANNER <span aria-hidden="true">✦</span></div>
+          <h1 id="page-title">Make room for <em>little things.</em></h1>
+          <p class="subtitle">A soft place to gather your days and see what they hold.</p>
+        </section>
+
+        <section class="planner-card" aria-label="Lịch tuần">
+          <div class="planner-heading">
+            <div>
+              <p class="section-kicker">YOUR LITTLE CALENDAR</p>
+              <h2 id="week-label" aria-live="polite"></h2>
+            </div>
+            <div class="week-controls" aria-label="Điều hướng tuần">
+              <button class="icon-button" id="previous-week" type="button" aria-label="Tuần trước" title="Tuần trước">←</button>
+              <button class="today-button" id="today-button" type="button">Hôm nay</button>
+              <button class="icon-button" id="next-week" type="button" aria-label="Tuần sau" title="Tuần sau">→</button>
+            </div>
+          </div>
+
+          <div class="week-strip" id="week-strip" role="group" aria-label="Chọn ngày trong tuần"></div>
+
+          <div class="day-panel" aria-live="polite">
+            <div class="panel-sparkle" aria-hidden="true">✧</div>
+            <div class="empty-illustration" aria-hidden="true">
+              <div class="sun"></div><div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+              <div class="hill hill-back"></div><div class="hill hill-front"></div>
+              <span class="flower flower-one">✿</span><span class="flower flower-two">✿</span>
+            </div>
+            <p class="section-kicker" id="selected-date-kicker"></p>
+            <h3>A fresh little page</h3>
+            <p class="empty-copy">This day is yours to shape.<br>Take a breath and enjoy the space.</p>
+            <div class="dotted-rule" aria-hidden="true"></div>
+            <p class="gentle-note"><span aria-hidden="true">♡</span> one thing at a time</p>
+          </div>
+          <footer class="planner-footer"><span>✦</span> MADE FOR SLOWER DAYS <span>✦</span></footer>
+        </section>
+      </main>
+
+      <footer class="page-footer">A little plan, a little magic <span aria-hidden="true">☾</span></footer>
+    </div>
+  </body>
+</html>

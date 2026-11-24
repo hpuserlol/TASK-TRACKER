@@ -1,0 +1,104 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Press+Start+2P&display=swap');
+
+:root {
+  color-scheme: light;
+  --paper: #f4ead5;
+  --paper-light: #fffaf0;
+  --ink: #493b30;
+  --muted: #8f7d68;
+  --olive: #68734b;
+  --olive-dark: #4e5939;
+  --rose: #c78279;
+  --gold: #d8ad63;
+  --line: #dfcfb2;
+  --shadow: #c7b593;
+  font-family: 'DM Sans', 'Segoe UI', sans-serif;
+}
+
+* { box-sizing: border-box; }
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image: radial-gradient(#d6c6a7 0.65px, transparent 0.65px), radial-gradient(#fff9eb 0.6px, transparent 0.6px);
+  background-position: 0 0, 8px 8px;
+  background-size: 16px 16px;
+}
+button, a { font: inherit; }
+button:focus-visible, a:focus-visible { outline: 3px solid var(--rose); outline-offset: 3px; }
+.page-shell { width: min(100% - 40px, 900px); margin: 0 auto; }
+.topbar { height: 75px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #d9c8a8; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font-weight: 700; letter-spacing: .02em; }
+.brand-mark { display: grid; place-items: center; width: 29px; height: 29px; color: #fff8e9; background: var(--olive); border: 2px solid var(--ink); box-shadow: 3px 3px 0 var(--shadow); font-size: 17px; }
+.top-note { display: flex; align-items: center; gap: 8px; color: var(--muted); font-family: 'DM Mono', monospace; font-size: 11px; }
+.status-dot { width: 7px; height: 7px; background: #899262; border: 1px solid var(--olive-dark); border-radius: 50%; }
+.intro { padding: 50px 0 30px; text-align: center; }
+.eyebrow, .section-kicker, .planner-footer { color: var(--olive); font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: .17em; }
+.eyebrow { display: flex; justify-content: center; align-items: center; gap: 10px; }
+.eyebrow span { color: var(--gold); }
+h1 { margin: 15px 0 8px; font-family: 'Press Start 2P', 'Courier New', monospace; font-size: clamp(19px, 3.6vw, 30px); line-height: 1.65; font-weight: 400; letter-spacing: -.07em; }
+h1 em { color: var(--olive); font-style: normal; }
+.subtitle { margin: 0; color: var(--muted); font-size: 14px; }
+.planner-card { position: relative; overflow: hidden; padding: 30px 38px 0; background: var(--paper-light); border: 2px solid var(--ink); box-shadow: 7px 7px 0 var(--shadow); }
+.planner-card::before, .planner-card::after { position: absolute; top: 0; width: 8px; height: 8px; background: var(--olive); content: ''; }
+.planner-card::before { left: 0; }.planner-card::after { right: 0; }
+.planner-heading { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.section-kicker { margin: 0 0 8px; font-size: 9px; }
+h2 { margin: 0; font-family: 'Press Start 2P', 'Courier New', monospace; font-size: clamp(13px, 2.4vw, 19px); font-weight: 400; line-height: 1.6; }
+.week-controls { display: flex; gap: 8px; align-items: center; }
+.icon-button, .today-button { min-height: 36px; color: var(--ink); background: #f8f0e1; border: 1px solid #c8b797; cursor: pointer; transition: background .15s, transform .15s; }
+.icon-button { width: 38px; font-size: 19px; }
+.today-button { padding: 0 13px; font-family: 'DM Mono', monospace; font-size: 11px; }
+.icon-button:hover, .today-button:hover { background: #eee2ca; transform: translateY(-1px); }
+.week-strip { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 9px; margin: 28px 0 22px; }
+.day-button { position: relative; display: flex; min-height: 95px; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: var(--muted); background: #faf5e9; border: 1px solid #e1d4bd; cursor: pointer; transition: .15s ease; }
+.day-button:hover { border-color: var(--olive); transform: translateY(-2px); }
+.day-button .weekday { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
+.day-button .day-number { display: grid; width: 32px; height: 32px; place-items: center; color: var(--ink); font-size: 15px; font-weight: 600; }
+.day-button.is-today .day-number { border: 1px dashed var(--rose); border-radius: 50%; }
+.day-button[aria-pressed="true"] { color: #fff9ed; background: var(--olive); border-color: var(--olive-dark); box-shadow: 3px 3px 0 #c9bea1; }
+.day-button[aria-pressed="true"] .day-number { color: #fff9ed; }
+.day-button[aria-pressed="true"].is-today .day-number { border-color: #f4c8a9; }
+.day-button .today-tag { position: absolute; bottom: 5px; color: #e8ce93; font-family: 'DM Mono', monospace; font-size: 7px; letter-spacing: .1em; }
+.day-button.is-today { padding-bottom: 9px; }
+.day-panel { position: relative; display: flex; min-height: 290px; flex-direction: column; align-items: center; justify-content: center; padding: 23px 15px; overflow: hidden; background: #f7f0e1; border: 1px dashed #d2c2a2; text-align: center; }
+.panel-sparkle { position: absolute; top: 17px; right: 20px; color: var(--gold); font-size: 21px; }
+.empty-illustration { position: relative; width: 150px; height: 83px; margin: 0 auto 12px; overflow: hidden; }
+.sun { position: absolute; top: 8px; left: 59px; width: 27px; height: 27px; background: #e9c77d; border: 2px solid #927343; box-shadow: 0 0 0 5px #eed8a480; }
+.cloud { position: absolute; z-index: 2; width: 29px; height: 10px; background: #fff9ec; border: 1px solid #cbbb9e; }
+.cloud::before, .cloud::after { position: absolute; bottom: 3px; width: 11px; height: 11px; background: #fff9ec; border-top: 1px solid #cbbb9e; border-left: 1px solid #cbbb9e; content: ''; transform: rotate(45deg); }
+.cloud::before { left: 4px; }.cloud::after { left: 13px; }
+.cloud-one { top: 21px; left: 22px; }.cloud-two { top: 35px; right: 19px; transform: scale(.75); }
+.hill { position: absolute; bottom: -21px; width: 115px; height: 55px; border: 2px solid var(--olive-dark); border-radius: 50% 50% 0 0; }
+.hill-back { left: -7px; background: #b5b98c; }.hill-front { right: -12px; bottom: -28px; background: #84916a; }
+.flower { position: absolute; z-index: 3; color: #f4c8a9; font-size: 13px; text-shadow: 1px 1px #775d45; }.flower-one { bottom: 14px; left: 42px; }.flower-two { right: 35px; bottom: 10px; font-size: 10px; }
+.day-panel .section-kicker { margin-bottom: 7px; color: #a27d4d; }
+h3 { margin: 0; font-family: 'Press Start 2P', 'Courier New', monospace; font-size: 13px; font-weight: 400; line-height: 1.8; }
+.empty-copy { margin: 8px 0 12px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.dotted-rule { width: min(220px, 70%); border-top: 1px dotted #cbbb9e; }
+.gentle-note { margin: 10px 0 0; color: var(--rose); font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .08em; }
+.planner-footer { display: flex; align-items: center; justify-content: center; gap: 9px; height: 39px; font-size: 8px; letter-spacing: .16em; }
+.planner-footer span { color: var(--gold); }
+.page-footer { padding: 30px 0 35px; color: var(--muted); text-align: center; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .06em; }
+.page-footer span { margin-left: 5px; color: var(--olive); }
+@media (max-width: 620px) {
+  .page-shell { width: min(100% - 26px, 500px); }
+  .topbar { height: 63px; }.top-note { font-size: 9px; }
+  .intro { padding: 38px 0 23px; }.subtitle { font-size: 12px; }
+  .planner-card { padding: 23px 15px 0; box-shadow: 5px 5px 0 var(--shadow); }
+  .planner-heading { align-items: flex-start; flex-direction: column; gap: 14px; }
+  .week-controls { align-self: flex-end; margin-top: -48px; }
+  .week-strip { gap: 5px; margin-top: 22px; }
+  .day-button { min-height: 75px; gap: 6px; }.day-button .weekday { font-size: 8px; }.day-button .day-number { width: 29px; height: 29px; font-size: 13px; }
+  .day-button .today-tag { font-size: 6px; }
+  .day-panel { min-height: 270px; }
+}
+@media (max-width: 380px) {
+  .top-note { max-width: 120px; line-height: 1.4; text-align: right; }
+  .planner-card { padding-inline: 10px; }
+  .week-strip { gap: 3px; }
+  .day-button .weekday { font-size: 7px; letter-spacing: 0; }
+  .day-button { min-height: 70px; }
+}
